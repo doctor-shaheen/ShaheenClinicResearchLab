@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label for="app_user_supervisor_admin">Supervisor</label>
+    <select class="form-control" id="app_user_supervisor_admin" name="app_user_supervisor_admin">
+        <option value="">Select Supervisor (Optional)</option>
+        {% for supervisor_choice in app_user_supervisor_admin_choices %}
+        <option value="{{ supervisor_choice }}">{{ supervisor_choice }}</option>
+        {% endfor %}
+    </select>
+</div>

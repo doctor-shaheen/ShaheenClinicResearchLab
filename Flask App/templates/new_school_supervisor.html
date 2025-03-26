@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Make New Private School/Institution</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                    <li class="breadcrumb-item active">New School Supervisor</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card glass-box">
+                    <div class="card-header">
+                        <h3 class="card-title">Make New School/Institution</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="{{ url_for('new_school_supervisor') }}">
+                            <div class="form-group">
+                                <label for="school_name_supervisor">School/Institution Name</label>
+                                <input type="text" class="form-control" id="school_name_supervisor" name="school_name_supervisor" placeholder="Enter school/institution name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="school_description_supervisor">Description</label>
+                                <textarea class="form-control" id="school_description_supervisor" name="school_description_supervisor" placeholder="Describe the school/institution" rows="3"></textarea>
+                            </div>
+                            <button type="submit" name="create_school_supervisor" class="btn btn-primary"><i class="fas fa-plus"></i> Create School/Institution</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card glass-box">
+                    <div class="card-header">
+                        <h3 class="card-title">Current Schools/Institutions</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="schoolsTableSupervisor" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for school in schools_table_supervisor_data %}
+                                <tr>
+                                    <td>{{ school.name }}</td>
+                                    <td>{{ school.description }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#schoolsTableSupervisor').DataTable();
+    });
+</script>
+{% endblock %}

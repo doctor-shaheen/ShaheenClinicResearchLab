@@ -1,0 +1,267 @@
+/* ===== Color Palette ===== */
+:root {
+    --primary-color: #6366f1;
+    --primary-gradient-start: #6366f1;
+    --primary-gradient-end: #8b5cf6;
+    --background-light: #f4f6f9;
+    --text-primary: #1f2937;
+    --text-secondary: #4a5568;
+    --sidebar-background: #ffffff;
+    --card-background: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ===== Global Styles ===== */
+  body {
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif !important;
+    background-color: var(--background-light);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  /* ===== Content Wrapper ===== */
+  .content-wrapper {
+    background-image:
+      linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.7)
+      ),
+      url('https://i.ibb.co/S492MtjK/pikaso-texttoimage-35mm-film-photography-Create-a-futuristic-logo-for-1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(10px);
+    min-height: 100vh;
+  }
+
+  /* ===== Glassmorphism Base Style ===== */
+  .glass-box {
+    background: var(--card-background);
+    backdrop-filter: blur(15px) saturate(180%);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.06),
+      inset 0 1px 2px rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .glass-box:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 15px 40px rgba(0, 0, 0, 0.08),
+      inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  }
+
+  /* Apply glassmorphism to key elements */
+  .box, .value-box, .plot-container,
+  .dataTables_wrapper, .shiny-notification,
+  .main-header .logo, .main-sidebar {
+    @extend .glass-box; /* Corrected to @extend .glass-box; */
+  }
+
+  /* ===== Value Boxes ===== */
+  .value-box {
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end)) !important;
+    color: white !important;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .value-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 20px rgba(99, 102, 241, 0.2);
+  }
+
+  /* ===== Buttons ===== */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(99, 102, 241, 0.15);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(99, 102, 241, 0.25);
+  }
+
+  /* ===== Sidebar Styling ===== */
+  .main-sidebar {
+    background: var(--sidebar-background) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .sidebar-menu li a {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+    border-radius: 10px;
+    margin: 8px 10px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.7;
+  }
+
+  .sidebar-menu li a:hover {
+    background: rgba(99, 102, 241, 0.1) !important;
+    transform: translateX(5px);
+    color: var(--primary-color) !important;
+    opacity: 1;
+  }
+
+  .sidebar-menu li.active a {
+    background: rgba(99, 102, 241, 0.2) !important;
+    color: var(--primary-color) !important;
+    opacity: 1;
+    font-weight: 600;
+    box-shadow: none !important;
+  }
+
+  /* ===== DataTables Styling ===== */
+  .dataTables_wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .dataTables_paginate .paginate_button {
+    border-radius: 6px !important;
+    margin: 0 3px !important;
+    transition: all 0.3s ease;
+  }
+
+  .dataTables_paginate .current {
+    background: var(--primary-color) !important;
+    color: white !important;
+  }
+
+  /* ===== Notifications ===== */
+  .shiny-notification {
+    border-radius: 12px !important;
+    border-left: 5px solid var(--primary-color) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ===== Plots and Charts ===== */
+  .plot-container {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  /* ===== Responsive Adjustments ===== */
+  @media (max-width: 768px) {
+    .content-wrapper {
+      background-image: none;
+      background-color: var(--background-light);
+    }
+
+    .main-sidebar {
+      width: 250px !important;
+    }
+  }
+
+  /* Additional fine-tuning for specific components */
+  .nav-tabs-custom > .nav-tabs {
+    border-bottom: 2px solid var(--primary-color);
+  }
+
+  .nav-tabs-custom > .nav-tabs > li.active {
+    border-top-color: var(--primary-color);
+  }
+
+  /* ===== Header Logo Styling ===== */
+  .header-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    top: 0px;
+  }
+
+  .header-logo-image {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0.1,0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .header-logo-image:hover {
+    transform: scale(1.05);
+  }
+
+  .header-logo-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: .7em;
+    color: #1f2937;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0.01,0.1);
+  }
+
+  /* ===== Header Search & Notification Styling ===== */
+  .header-right-items {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .header-search-input {
+    width: 250px;
+    border-radius: 20px;
+    padding: 6px 15px;
+    margin-right: 15px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(0,0,0.1);
+    color: #4a5568; /* Added color for search input text */
+  }
+
+  .header-notification-icon {
+    color: #4a5568;
+    margin-right: 15px;
+    font-size: 1.2em;
+  }
+
+  /* ===== Sidebar Footer Styling ===== */
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 15px;
+    background: rgba(0,0,0,0.05);
+    text-align: center;
+  }
+
+  .sidebar-footer-link {
+    color: #4a5568;
+    text-decoration: none;
+  }
+
+  /* ===== Refresh Button Container Styling ===== */
+  .refresh-button-container {
+    top: 5px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: right;
+    gap: 10px;
+    position: absolute; /* Added position absolute to container */
+  }
+  .refresh-button-container .btn {
+    border-radius: 20px;
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+
+  /* ===== Filter Panel Styling in New Study Page ===== */
+  .filter-panel {
+    margin-bottom: 15px; /* Add some space below the filter panel */
+  }

@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label for="progress_study">Select Study</label>
+    <select class="form-control" id="progress_study" name="progress_study" required>
+        <option value="">Select a Study</option>
+        {% for study_choice in progress_study_choices %}
+        <option value="{{ study_choice }}">{{ study_choice }}</option>
+        {% endfor %}
+    </select>
+</div>
